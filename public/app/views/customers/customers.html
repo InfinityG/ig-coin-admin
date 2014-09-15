@@ -1,0 +1,14 @@
+<div id="customerWrapper" style="float:left">
+    <h1>Customers</h1>
+
+    <div style="width: 200px">
+        Search: <input type="text">
+    </div>
+    <br/>
+
+    <div>
+        <div ng-repeat="customer in customers | orderBy: 'last_name'">
+            <div><a href="#">{{customer.id + ' ' + customer.first_name + ' ' + customer.last_name}}</a></div>
+        </div>
+    </div>
+</div>
