@@ -9,6 +9,10 @@
 				controller: 'CustomersController',
 				templateUrl: viewBase + 'customers/customers.html'
 			})
+            .when('/customertransactions/:customerId', {
+				controller: 'TransactionsController',
+				templateUrl: viewBase + 'customers/transactions.html'
+			})
 			.otherwise({ redirectTo: '/customers' });
 
 	}]);

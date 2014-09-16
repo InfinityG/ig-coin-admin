@@ -1,14 +1,129 @@
-<div id="customerWrapper" style="float:left">
-    <h1>Customers</h1>
+<article ng-model="registerSelected" ng-hide="registerSelected==true">
+    <header>
+        <h1>Customers</h1>
 
-    <div style="width: 200px">
-        Search: <input type="text">
-    </div>
-    <br/>
+        <!--<p>Create new Customer or view existing</p>-->
+    </header>
 
-    <div>
-        <div ng-repeat="customer in customers | orderBy: 'last_name'">
-            <div><a href="#">{{customer.id + ' ' + customer.first_name + ' ' + customer.last_name}}</a></div>
+
+    <section>
+        <div style="padding-bottom: 15px; float:left" ng-hide="registerSelected == true">
+            <button title="Register" ng-model="registerSelected" ng-click="registerSelected = true;">Register new
+            </button>
         </div>
+        <div style="float:right; padding-bottom: 20px">
+            Search :&nbsp;<input type="text" ng-model="searchText" ng-change="searchTextChanged();">
+        </div>
+
+        <div>
+            <table style="width: 100%; text-align: left; margin-bottom: 20px;">
+                <tr style="background-color: #efefef">
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="customer in filteredCustomers | orderBy: 'last_name'">
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.first_name}}</td>
+                    <td>{{customer.last_name}}</td>
+                    <td>
+                        <button title="View" ng-click="customerSelected(customer.id);">Details</button>
+                    </td>
+                </tr>
+                <tr style="background-color: #efefef;"></tr>
+            </table>
+
+        </div>
+    </section>
+
+    <!--<footer>-->
+    <!--<h3>Instructions</h3>-->
+    <!--<p>Enter your customer's name or id in the search field.  The system will display the customers it finds with matching criteria.</p>-->
+    <!--</footer>-->
+
+</article>
+
+<aside ng-model="selectedCustomer" ng-hide="registerSelected==true">
+    <h3>Customer details</h3>
+
+    <p ng-hide="selectedCustomer != null">Choose a customer from the list on the left</p>
+
+    <div style="padding-bottom: 5px" ng-show="selectedCustomer != null">
+        <table style="width:auto;">
+            <tr>
+                <td><b>Id</b></td>
+                <td>{{selectedCustomer.id}}</td>
+            </tr>
+            <tr>
+                <td><b>Name</b></td>
+                <td>{{selectedCustomer.first_name}} {{selectedCustomer.last_name}}</td>
+            </tr>
+            <tr>
+                <td><b>Username</b></td>
+                <td>{{selectedCustomer.username}}</td>
+            </tr>
+            <tr>
+                <td><b>Balance</b></td>
+                <td>{{selectedCustomerBalance.balance}} {{selectedCustomerBalance.currency}}</td>
+            </tr>
+            <tr>
+                <td><b>Assign</b></td>
+                <td><input type="text" maxlength="10" style="width:50px; margin-right: 10px"/>
+                    <button>Assign</button>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Redeem</b></td>
+                <td><input type="text" maxlength="10" style="width:50px; margin-right: 10px"/>
+                    <button>Redeem</button>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <a href="#/customertransactions/{{selectedCustomer.id}}">Transaction history</a>
     </div>
-</div>
+</aside>
+
+
+<article>
+
+
+
+    <header ng-hide="registerSelected == false">
+        <h1>Register new Customer</h1>
+    </header>
+
+    <section ng-hide="registerSelected == false">
+        <div>
+            <form name="registerForm" ng-model="newCustomer">
+            <table style="width: 100%; text-align: left; padding: 10px; margin-bottom: 20px;">
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="firstName" ng-model="newCustomer.first_name"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="lastName" ng_model="newCustomer.last_name"></td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="userName" ng-model="newCustomer.username"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button ng-click="registerCustomer()">Continue</button>
+                        &nbsp;
+                        <button ng-model="registerSelected" ng-click="registerSelected=false;">Cancel</button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+
+        </div>
+    </section>
+
+</article>
+
+

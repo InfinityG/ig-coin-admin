@@ -24,53 +24,31 @@
 
             <header class="wrapper clearfix">
                 <div style="float:left;">
-                    <img src="img/rewards_logo.png"  />
+                    <a href="#"> <img src="img/rewards_logo.png"  /></a>
                 </div>
                 <!-- <h1 class="title">rewards gateway</h1> -->
-                <nav>
-                    <ul>
-                        <li><a href="#/customers">Assign</a></li>
-                        <li><a href="#">Redeem</a></li>
-                        <li><a href="#">Transfer</a></li>
-                    </ul>
-                </nav>
+                <!--<nav>-->
+                    <!--<ul>-->
+                        <!--<li><a href="#/customers">Assign</a></li>-->
+                        <!--<li><a href="#">Redeem</a></li>-->
+                        <!--<li><a href="#">Transfer</a></li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
             </header>
         </div>
 
         <div class="main-container">
-            <div class="main wrapper clearfix">
+            <div class="main wrapper clearfix" ng-view="">
 
-               <!--  <article>
-                    <header>
-                        <h1>Assign Rewards</h1>
-                        <p>Select a customer to assign rewards to</p>
-                    </header>
-                   
-                    <footer>
-                        <h3>article footer h3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-                    </footer>
-                </article> -->
 
-                <!-- Main content container -->
-                <div ng-view=""></div>
-
-                <aside>
-                    <h3>Customer summary</h3>
-                    <p>
-                        Id: [id] <br/>
-                        First Name: [firstname] <br/>
-                        Last Name: [lastname] <br/>
-                        Balance: [lastname] <br/>
-                    </p>
-                </aside>
 
             </div> <!-- #main -->
         </div> <!-- #main-container -->
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>footer</h3>
+                <!--<h3></h3>-->
+                © Infinity-G/Amply 2014
             </footer>
         </div>
 
@@ -86,9 +64,11 @@
 
         <script src="app/app.js"></script>
         <script src="app/controllers/customersController.js"></script>
+        <script src="app/controllers/transactionsController.js"></script>
         <script src="app/services/dataService.js"></script>
         <script src="app/services/config.js"></script>
         <script src="app/services/customersService.js"></script>
+        <script src="app/filters/nameFilter.js"></script>
 
     </body>
 </html>

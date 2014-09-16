@@ -1,0 +1,34 @@
+<article>
+    <header>
+        <h1 ng-model="customer">Transactions for: {{customer.first_name}} {{customer.last_name}}</h1>
+
+    </header>
+
+    <section>
+        <div ng-model="transactions">
+            <div ng-hide="transactions.length != 0">No transactions recorded for this customer</div>
+            <table ng-hide="transactions.length == 0" style="width: 100%; text-align: left; padding: 10px; margin-bottom: 20px;">
+                <tr style="background-color: #efefef">
+                    <th>Id</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Invoice number</th>
+                </tr>
+                <tr ng-repeat="transaction in transactions">
+                    <td>{{transaction.id}}</td>
+                    <td>{{transaction.amount}} {{transaction.currency}}</td>
+                    <td>{{transaction.timestamp}}</td>
+                    <td>{{transaction.type}}</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+</article>
+
+<aside ng-model="balance">
+    <h3>Customer Balance</h3>
+    <p>{{balance.balance}} {{balance.currency}}</p>
+</aside>

@@ -32,6 +32,11 @@ hr {
     padding: 0;
 }
 
+th,td
+{
+    padding:4px;
+}
+
 audio,
 canvas,
 img,
@@ -80,11 +85,14 @@ body {
 
 .footer-container,
 .main aside {
-    border-top: 20px solid #efefef;
+    border-top: 20px solid #3d8424;
+}
+
+.footer-container{
+    background: #ffffff;
 }
 
 .header-container,
-.footer-container,
 .main aside {
     background: #ffffff;
 }
@@ -151,11 +159,11 @@ nav a:hover {
 
 .main aside {
     color: black;
-    padding: 0px 5% 10px;
+    padding: 0px 15px;
 }
 
 .footer-container footer {
-    color: white;
+    color: black;
     padding: 20px 0;
 }
 
@@ -200,7 +208,6 @@ nav a:hover {
         width: 27%;
         margin: 0 1.7%;
         padding: 25px 2%;
-        margin-bottom: 0;
     }
 
     nav li:first-child a {
