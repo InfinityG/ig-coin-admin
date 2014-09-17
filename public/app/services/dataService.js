@@ -1,9 +1,9 @@
 (function () {
 
-    var injectParams = ['customersService'];
+    var injectParams = ['customersService', 'configurationService'];
 
-    var dataService = function (customersService) {
-        return customersService;
+    var dataService = function (customersService, configurationService) {
+        return {customers : customersService, configuration : configurationService};
     };
 
     dataService.$inject = injectParams;

@@ -18,7 +18,7 @@
         }
 
         function getCustomerTransactions(id) {
-            dataService.getCustomerTransactions(id)
+            dataService.customers.getCustomerTransactions(id)
                 .then(function(data){
                     $scope.transactions = data.results;
                 }, function(error){
@@ -27,7 +27,7 @@
         }
 
         function getCustomerBalance(id) {
-            dataService.getCustomerBalance(id)
+            dataService.customers.getCustomerBalance(id)
                 .then(function(data){
                     $scope.balance = data.results;
                 }, function(error){
@@ -36,7 +36,7 @@
         }
 
         function getCustomerById(id) {
-            dataService.getCustomerById(id)
+            dataService.customers.getCustomerById(id)
                 .then(function(data){
                     $scope.customer = data.results;
                 }, function(error){

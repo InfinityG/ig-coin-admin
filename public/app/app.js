@@ -13,6 +13,10 @@
 				controller: 'TransactionsController',
 				templateUrl: viewBase + 'customers/transactions.html'
 			})
+            .when('/configuration', {
+				controller: 'ConfigurationController',
+				templateUrl: viewBase + 'configuration/configuration.html'
+			})
 			.otherwise({ redirectTo: '/customers' });
 
 	}]);

@@ -1,0 +1,46 @@
+<article >
+    <header>
+        <h1>Api Configuration</h1>
+    </header>
+
+    <section>
+
+        <div>
+            <table ng-model="apiConfig" style="width: 100%; text-align: left; margin-bottom: 20px;">
+                <tr>
+                    <td>Hot wallet</td>
+                    <td>{{apiConfig.gateway_hot_wallet}}</td>
+                </tr>
+                <tr>
+                    <td>Hot wallet balance</td>
+                    <td>{{apiConfig.gateway_hot_balance}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cold wallet</td>
+                    <td>{{apiConfig.gateway_cold_wallet}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cold wallet balance</td>
+                    <td>{{apiConfig.gateway_cold_balance}}</td>
+                </tr>
+
+                <tr>
+                    <td>Ripple-rest uri</td>
+                    <td>{{apiConfig.ripple_rest_uri}}</td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+
+</article>
+
+<aside>
+    <h3>Status</h3>
+
+    <p></p>
+</aside>
+
+
