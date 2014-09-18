@@ -12,7 +12,7 @@
             </button>
         </div>
         <div style="float:right; padding-bottom: 20px">
-            Search :&nbsp;<input type="text" ng-model="searchText" ng-change="searchTextChanged();">
+            Filter :&nbsp;<input type="text" ng-model="searchText" ng-change="searchTextChanged();">
         </div>
 
         <div>
@@ -27,11 +27,19 @@
                     <td>{{customer.id}}</td>
                     <td>{{customer.first_name}}</td>
                     <td>{{customer.last_name}}</td>
-                    <td>
-                        <button title="View" ng-click="customerSelected(customer.id);">Details</button>
+                    <td style="text-align: right">
+                        <button title="View" ng-click="customerSelected(customer.id);">View</button>
                     </td>
                 </tr>
-                <tr style="background-color: #efefef;"></tr>
+                <tr style="background-color: #efefef;">
+                    <td>
+                        <button ng-click="pageChanged(-1)" ng-disabled="pageIndex == 1"><</button>
+                    </td>
+                    <td colspan="2" style="text-align: center">{{startIndex}} - {{endIndex}} of {{totalRecords}}</td>
+                    <td style="text-align: right">
+                        <button ng-click="pageChanged(1)" ng-disabled="(totalPages == pageIndex)">></button>
+                    </td>
+                </tr>
             </table>
 
         </div>
@@ -69,8 +77,8 @@
             </tr>
             <tr>
                 <td><b>Assign</b></td>
-                <td><input type="text" maxlength="10" style="width:50px; margin-right: 10px"/>
-                    <button>Assign</button>
+                <td><input type="text" maxlength="10" style="width:50px; margin-right: 10px" ng-model="depositAmount"/>
+                    <button ng-click="createDeposit()">Assign</button>
                 </td>
             </tr>
             <tr>
@@ -85,11 +93,7 @@
     </div>
 </aside>
 
-
 <article>
-
-
-
     <header ng-hide="registerSelected == false">
         <h1>Register new Customer</h1>
     </header>

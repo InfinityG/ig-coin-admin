@@ -13,6 +13,9 @@
             password: '1234'
         };
 
+        $scope.depositAmount = 0;
+        $scope.withdrawalAmount = 0;
+
         $scope.selectedCustomer = null;
         $scope.selectedCustomerBalance = null;
         $scope.selectedCustomerTransactions = null;
@@ -25,8 +28,12 @@
 
         //paging
         $scope.totalRecords = 0;
-        $scope.pageSize = 10;
-        $scope.currentPage = 1;
+        $scope.totalPages = 0;
+        $scope.pageRecords = 0;
+        $scope.pageSize = 3;
+        $scope.pageIndex = 1;
+        $scope.startIndex = 0;
+        $scope.endIndex = 0;
 
         $scope.navigate = function (url) {
             $location.path(url);
@@ -34,6 +41,14 @@
 
         $scope.searchTextChanged = function () {
             filterCustomers($scope.searchText);
+        };
+
+        $scope.pageChanged = function (page) {
+            if ($scope.pageIndex == 1 && page == -1)
+                return;
+
+            $scope.pageIndex += page;
+            getCustomers();
         };
 
         $scope.customerSelected = function (customerId) {
@@ -48,9 +63,21 @@
                 .then(function (data) {
                     $scope.registerSelected = false;
                 }, function (error) {
-                    $window.alert('An error occurred: ' + error.message);
+                    $window.alert('An error occurred: ' + error);
                 });
 
+        };
+
+        $scope.createDeposit = function(){
+            dataService.transactions.createDeposit({user_id:$scope.selectedCustomer.id, amount:$scope.depositAmount})
+                .then(function(data){
+                    $scope.depositAmount = 0;
+                    getCustomerBalance($scope.selectedCustomer.id)
+                },
+                function(error){
+                    $window.alert('An error occurred: ' + error);
+                }
+            )
         };
 
         function init() {
@@ -58,9 +85,17 @@
         }
 
         function getCustomers() {
-            dataService.customers.getCustomers()
+            $scope.currentPageSize = 0;
+
+            dataService.customers.getCustomers($scope.pageIndex, $scope.pageSize)
                 .then(function (data) {
-                    $scope.customers = data.results;
+                    $scope.customers = data.results['users'];
+                    $scope.totalPages = data.results['total_page_count'];
+                    $scope.pageIndex = data.results['current_page'];
+                    $scope.totalRecords = data.results['total_record_count'];
+                    $scope.pageRecords = data.results['page_record_count'];
+                    $scope.startIndex = data.results['start_index'] + 1;
+                    $scope.endIndex = data.results['end_index'] + 1;
                     filterCustomers('');
                 }, function (error) {
                     $window.alert('An error occurred: ' + error);
