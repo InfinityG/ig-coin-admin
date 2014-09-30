@@ -25,5 +25,6 @@ Running the application
  
 Notes
 -----
-- This is a prototype application and is NOT intended for production use
-- The steps indicated above are for running the application in an INSECURE mode.  Further steps should be taken to run this via SSL if hosting on a public facing server (such as on EC2)
+- this is a prototype application and is NOT intended for production use
+- the steps indicated above are for running the application in an INSECURE mode.  Further steps should be taken to run this via SSL if hosting on a public facing server (such as on EC2)
+- further work is required to integrate the application with OpenPDS (personal data store) to manage user metadata in a secure manner
