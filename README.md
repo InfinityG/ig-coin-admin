@@ -11,11 +11,12 @@ The application uses the Rack web server (Ruby based). Installation is done as f
 
 - install ruby locally (see https://www.ruby-lang.org/en/installation/)
 - install git locally (eg: http://git-scm.com/download/mac for OSX)
-- install the bundler gem via 'gem install bundler'
-- create a directory for the project (eg: 'ig-coin-admin')
-- clone the project from github via 'git clone https://github.com/InfinityG/ig-coin-admin.git ig-coin-admin'
-- cd to the root of the new directory
-- run 'bundler install' (this will install the dependencies required by the project, eg: rack)
+- from the command line:
+ - install the bundler gem via 'gem install bundler'
+ - create a directory for the project (eg: 'ig-coin-admin')
+ - clone the project from github via 'git clone https://github.com/InfinityG/ig-coin-admin.git ig-coin-admin'
+ - cd to the root of the new directory
+ - run 'bundler install' (this will install the dependencies required by the project, eg: rack)
 
 Running the application
 -----------------------
