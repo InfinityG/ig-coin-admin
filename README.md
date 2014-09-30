@@ -15,7 +15,7 @@ The application uses the Rack web server (Ruby based). Installation is done as f
 - create a directory for the project (eg: 'ig-coin-admin')
 - clone the project from github via 'git clone https://github.com/InfinityG/ig-coin-admin.git ig-coin-admin'
 - cd to the root of the new directory
-- run 'bundler install' (this will install the dependencies required by the project)
+- run 'bundler install' (this will install the dependencies required by the project, eg: rack)
 
 To run the web server on port 8001, execute 'rackup -p 8001'
 - you will now be able to browse to the site via 'http://localhost:8001'
