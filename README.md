@@ -22,7 +22,6 @@ Running the application
 - to run the web server on port 8001, execute 'rackup -p 8001'
 - you will now be able to browse to the site via 'http://localhost:8001'
  
-
 Notes
 -----
 - This is a prototype application and is NOT intended for production use
